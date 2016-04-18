@@ -8,7 +8,8 @@ var AllLinks = React.createClass({
       return (
         <div key={link.id}>
           <Link link={link}
-                 handleReadUpdate={this.onUpdate}/>
+                 handleReadUpdate={this.onUpdate}
+                 handleLinkUpdate={this.onUpdate}/>
         </div>
       )
     });
