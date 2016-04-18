@@ -34,6 +34,10 @@ var Body = React.createClass({
     });
   },
 
+  handleFilter(){
+    console.log('filter')
+  },
+
   updateLinks(link) {
     var links = this.state.links.filter((s) => { return s.id != link.id });
     links.push(link);
@@ -48,7 +52,8 @@ var Body = React.createClass({
         <h2>All Links</h2>
         <AllLinks links={this.state.links}
                   handleReadUpdate={this.handleReadUpdate}
-                  sortStatus={this.handleSort}/>
+                  sortStatus={this.handleSort}
+                  filterLinks={this.handleFilter}/>
       </div>
     )
   }
