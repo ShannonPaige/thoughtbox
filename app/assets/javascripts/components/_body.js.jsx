@@ -43,6 +43,7 @@ var Body = React.createClass({
   render() {
     return (
       <div>
+        <h2>Add new link</h2>
         <NewLink handleSubmit={this.handleSubmit} />
         <h2>All Links</h2>
         <AllLinks links={this.state.links}
