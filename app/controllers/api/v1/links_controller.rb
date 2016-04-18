@@ -1,6 +1,6 @@
 class Api::V1::LinksController < Api::V1::BaseController
   def index
-    respond_with Link.all
+    respond_with Link.order_by(params[:order_type])
   end
 
   def create

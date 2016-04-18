@@ -63,7 +63,6 @@ var Link = React.createClass({
             </tr>
           </tbody>
         </table>
-
       </div>
     )
   }

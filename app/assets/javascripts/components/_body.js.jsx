@@ -23,6 +23,17 @@ var Body = React.createClass({
     });
   },
 
+  handleSort(order_type) {
+    $.ajax({
+      url: `/api/v1/links`,
+      type: 'GET',
+      data: { order_type: order_type },
+      success: (links) => {
+        this.setState({links: links})
+      }
+    });
+  },
+
   updateLinks(link) {
     var links = this.state.links.filter((s) => { return s.id != link.id });
     links.push(link);
@@ -35,7 +46,8 @@ var Body = React.createClass({
         <NewLink handleSubmit={this.handleSubmit} />
         <h2>All Links</h2>
         <AllLinks links={this.state.links}
-                  handleReadUpdate={this.handleReadUpdate} />
+                  handleReadUpdate={this.handleReadUpdate}
+                  sortStatus={this.handleSort}/>
       </div>
     )
   }
