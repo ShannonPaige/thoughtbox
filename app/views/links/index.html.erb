@@ -1,10 +1,4 @@
-<h1>Links</h1>
-<h2>Create A Link</h2>
-<%= form_for :link, url: links_path do |f| %>
-  Title: <%= f.text_field :title %>
-  URL: <%= f.text_field :url %>
-  <%= f.submit "Create Link" %>
-<% end %>
+<!-- <h1>Links</h1>
 <h2>All Links</h2>
 <table class="table">
   <tr>
@@ -15,4 +9,6 @@
     <td></td>
   </tr>
   <tr><%= render @links %></tr>
-</table>
+</table> -->
+
+<%= react_component 'Main' %>
