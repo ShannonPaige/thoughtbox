@@ -34,8 +34,15 @@ var Body = React.createClass({
     });
   },
 
-  handleFilter(){
-    console.log('filter')
+  handleFilter(search_term){
+    $.ajax({
+      url: `/api/v1/links`,
+      type: 'GET',
+      data: { search_term: search_term },
+      success: (links) => {
+        this.setState({links: links})
+      }
+    });
   },
 
   updateLinks(link) {
