@@ -6,7 +6,6 @@ class SessionsController < ApplicationController
     @user = User.find_by(email: params[:session][:email])
     if @user && @user.authenticate(params[:session][:password])
       session[:user_id] = @user.id
-      flash[:notice] = "Logged in as #{@user.email}"
       redirect_to dashboard_path
     else
       flash.now[:error] = "Invalid Login. Try Again."
