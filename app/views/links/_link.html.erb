@@ -1,0 +1,5 @@
+<td><%= button_to('Edit', link_path(link.id), method: :put) %>
+<td><%= link.title %></td>
+<td><%= link.url %></td>
+<td><%= link.read_status.capitalize %></td>
+<td><%= button_to('Mark as Read', link_path(link.id), method: :put) %>

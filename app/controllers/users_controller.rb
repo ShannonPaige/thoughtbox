@@ -7,8 +7,10 @@ class UsersController < ApplicationController
     @user = User.new(user_params)
     if @user.save
       session[:user_id] = @user.id
+      flash[:notice] = "Logged in as #{@user.email}"
       redirect_to dashboard_path
     else
+      flash[:notice] = "Invalid Login"
       redirect_to root_path
     end
   end
