@@ -9,8 +9,24 @@ var Body = React.createClass({
 
   handleSubmit(link) {
     var newState = this.state.links.concat(link);
-    console.log(newState)
     this.setState({ links: newState })
+  },
+
+  handleReadUpdate(link) {
+    $.ajax({
+      url: `/api/v1/links/${link.id}`,
+      type: 'PUT',
+      data: { link: link },
+      success: (link) => {
+        this.updateLinks(link)
+      }
+    });
+  },
+
+  updateLinks(link) {
+    var links = this.state.links.filter((s) => { return s.id != link.id });
+    links.push(link);
+    this.setState({ links: links });
   },
 
   render() {
@@ -18,7 +34,8 @@ var Body = React.createClass({
       <div>
         <NewLink handleSubmit={this.handleSubmit} />
         <h2>All Links</h2>
-        <AllLinks links={this.state.links} />
+        <AllLinks links={this.state.links}
+                  handleReadUpdate={this.handleReadUpdate} />
       </div>
     )
   }

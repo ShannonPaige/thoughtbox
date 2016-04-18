@@ -1,0 +1,13 @@
+.true {
+  color: #808080;
+}
+
+.table {
+  table-layout: fixed;
+  width: 600px;
+}
+
+td, th {
+  overflow: hidden;
+  width: 100px;
+}

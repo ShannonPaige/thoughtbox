@@ -1,10 +1,6 @@
 var AllLinks = React.createClass({
-  handleEdit() {
-    console.log('you are in edit!');
-  },
-
   onUpdate(link) {
-    this.props.handleUpdate(link);
+    this.props.handleReadUpdate(link);
   },
 
   render() {
@@ -12,13 +8,13 @@ var AllLinks = React.createClass({
       return (
         <div key={link.id}>
           <Link link={link}
-                 handleUpdate={this.onUpdate}/>
+                 handleReadUpdate={this.onUpdate}/>
         </div>
       )
     });
 
     return (
-      <div>
+      <div className="links">
         {links}
       </div>
     )
