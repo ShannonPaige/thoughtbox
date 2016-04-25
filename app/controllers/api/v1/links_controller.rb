@@ -1,14 +1,14 @@
 class Api::V1::LinksController < Api::V1::BaseController
   def index
-    respond_with Link.search_filter(params[:search_term]).order_by(params[:order_type])
+    respond_with current_user.links.search_filter(params[:search_term]).order_by(params[:order_type])
   end
 
   def create
-    respond_with :api, :v1, Link.create(link_params)
+    respond_with :api, :v1, current_user.links.create(link_params)
   end
 
   def update
-    link = Link.find(params["id"])
+    link = current_user.links.find(params["id"])
     link.update_attributes(link_params)
     respond_with link, json: link
   end
